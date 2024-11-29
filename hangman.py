@@ -1,16 +1,16 @@
-""" Welcome to play the Hangman game! Just run the code, function start() will execute automatically. """
+""" Main file of the game. Game starts automatically through the start() function. """
 
 from wonderwords import RandomWord
 from string import ascii_lowercase
 
 def generate_word():
-    """ Generates and returns a random word (noun). """
+    """ Generate and return a random word (noun). """
     w_inst = RandomWord()
     game_word = w_inst.word(include_categories=["noun"])
     return game_word
 
 def new_game():
-    """ Starts and plays a new game. """
+    """ Play a new game. """
     word = list(generate_word())
     masked_word = list("_" * len(word))
     wrong_answers = 0
@@ -51,17 +51,17 @@ def new_game():
             break     
 
 def separator():
-    """ Handles the drawing of a separation line for visual purposes. """
+    """ Print a separation line for visual purposes. """
     print("____________________________________________________________________")
 
 def word_drawing(masked_word):
-    """ Handles the drawing of the word and all revealed letters. """
+    """ Print the word and all revealed letters. """
     masked_word = " ".join(masked_word)
     print(masked_word)
     print("")
 
 def hangman_drawing(wrong_answers: int):
-    """ Handles the drawing of the Hangman figure based on wrong_answers parameter. """
+    """ Print the the Hangman figure based on wrong_answers parameter. """
     base0 = "  +---+"
     base1 = "  |   |"
     base2 = "      |"
@@ -95,12 +95,12 @@ def hangman_drawing(wrong_answers: int):
         print(f"{space}\n{base0}\n{base1}\n{wrong1}\n{wrong4}\n{wrong6}\n{base5}\n{base6}\n{space}")
 
 def help():
-    """ Prints available commands for the player to use. """
+    """ Print available commands for the player to use. """
     print("1 : new game")
     print("0 : exit\n")
 
 def player_input(player_name: str):
-    """ Calls to print operational commands from the help() function and asks the player for an input. """
+    """ Call to print operational commands from the help() function and ask the player for an input. """
     while True:
         help()
         try:
@@ -129,7 +129,7 @@ def player_input(player_name: str):
             new_game()
 
 def start():
-    """ Prints a welcoming text and asks the player for a name. """
+    """ Print a welcoming text and ask the player for a name. """
     print('"Welcome, outlander. Take a seat by the fire and leave your burdens at the door.')
     print('Come, the wind is freezing outside, let\'s cheer up our spirits with a little game.')
     print('Now, what is your name, outlander?"\n')
