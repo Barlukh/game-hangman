@@ -12,4 +12,4 @@ A simple game of Hangman. The game is only text-based in the command line. It ha
 - The player input is protected to only insert valid parameters. The game also has some role-playing text for flavour.
 
 ## Installation
-No installation. Run main.py. The game starts automatically through the start() function.
+No installation. Run the code in main.py. The game starts automatically through the start() function.
