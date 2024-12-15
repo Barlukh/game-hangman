@@ -1,7 +1,47 @@
-""" Main file of the game. Game starts automatically through the start() function. """
+""" Main file of the game. Function start() starts the game. """
 
 from wonderwords import RandomWord
 from string import ascii_lowercase
+
+def word_drawing(masked_word):
+    """ Print the word in its current revealed form. """
+    masked_word = " ".join(masked_word)
+    print(masked_word)
+    print("")
+
+def hangman_drawing(wrong_answers: int):
+    """ Print the Hangman figure based on wrong_answers value. """
+    base0 = "  +---+"
+    base1 = "  |   |"
+    base2 = "      |"
+    base3 = "      |"
+    base4 = "      |"
+    base5 = "      |"
+    base6 = "========="
+    space = ""
+    base = [space, base0, base1, base2, base3, base4, base5, base6, space]
+    wrong1 = "  O   |"
+    wrong2 = "  |   |"
+    wrong3 = " /|   |"
+    wrong4 = r" /|\  |"
+    wrong5 = " /    |"
+    wrong6 = r" / \  |"
+
+    if wrong_answers == 0:
+        for i in range(9):
+            print(base[i])
+    elif wrong_answers == 1:
+        print(f"{space}\n{base0}\n{base1}\n{wrong1}\n{base3}\n{base4}\n{base5}\n{base6}\n{space}")
+    elif wrong_answers == 2:
+        print(f"{space}\n{base0}\n{base1}\n{wrong1}\n{wrong2}\n{base4}\n{base5}\n{base6}\n{space}")
+    elif wrong_answers == 3:
+        print(f"{space}\n{base0}\n{base1}\n{wrong1}\n{wrong3}\n{base4}\n{base5}\n{base6}\n{space}")
+    elif wrong_answers == 4:
+        print(f"{space}\n{base0}\n{base1}\n{wrong1}\n{wrong4}\n{base4}\n{base5}\n{base6}\n{space}")
+    elif wrong_answers == 5:
+        print(f"{space}\n{base0}\n{base1}\n{wrong1}\n{wrong4}\n{wrong5}\n{base5}\n{base6}\n{space}")
+    elif wrong_answers == 6:
+        print(f"{space}\n{base0}\n{base1}\n{wrong1}\n{wrong4}\n{wrong6}\n{base5}\n{base6}\n{space}")
 
 def generate_word():
     """ Generate and return a random word (noun). """
@@ -10,7 +50,7 @@ def generate_word():
     return game_word
 
 def new_game():
-    """ Play a new game. """
+    """ Start a new game. """
     word = list(generate_word())
     masked_word = list("_" * len(word))
     wrong_answers = 0
@@ -54,53 +94,13 @@ def separator():
     """ Print a separation line for visual purposes. """
     print("____________________________________________________________________")
 
-def word_drawing(masked_word):
-    """ Print the word and all revealed letters. """
-    masked_word = " ".join(masked_word)
-    print(masked_word)
-    print("")
-
-def hangman_drawing(wrong_answers: int):
-    """ Print the the Hangman figure based on wrong_answers parameter. """
-    base0 = "  +---+"
-    base1 = "  |   |"
-    base2 = "      |"
-    base3 = "      |"
-    base4 = "      |"
-    base5 = "      |"
-    base6 = "========="
-    space = ""
-    base = [space, base0, base1, base2, base3, base4, base5, base6, space]
-    wrong1 = "  O   |"
-    wrong2 = "  |   |"
-    wrong3 = " /|   |"
-    wrong4 = r" /|\  |"
-    wrong5 = " /    |"
-    wrong6 = r" / \  |"
-
-    if wrong_answers == 0:
-        for i in range(9):
-            print(base[i])
-    elif wrong_answers == 1:
-        print(f"{space}\n{base0}\n{base1}\n{wrong1}\n{base3}\n{base4}\n{base5}\n{base6}\n{space}")
-    elif wrong_answers == 2:
-        print(f"{space}\n{base0}\n{base1}\n{wrong1}\n{wrong2}\n{base4}\n{base5}\n{base6}\n{space}")
-    elif wrong_answers == 3:
-        print(f"{space}\n{base0}\n{base1}\n{wrong1}\n{wrong3}\n{base4}\n{base5}\n{base6}\n{space}")
-    elif wrong_answers == 4:
-        print(f"{space}\n{base0}\n{base1}\n{wrong1}\n{wrong4}\n{base4}\n{base5}\n{base6}\n{space}")
-    elif wrong_answers == 5:
-        print(f"{space}\n{base0}\n{base1}\n{wrong1}\n{wrong4}\n{wrong5}\n{base5}\n{base6}\n{space}")
-    elif wrong_answers == 6:
-        print(f"{space}\n{base0}\n{base1}\n{wrong1}\n{wrong4}\n{wrong6}\n{base5}\n{base6}\n{space}")
-
 def help():
     """ Print available commands for the player to use. """
     print("1 : new game")
     print("0 : exit\n")
 
 def player_input(player_name: str):
-    """ Call to print operational commands from the help() function and ask the player for an input. """
+    """ Print information for the player from the help() function and ask for an input. """
     while True:
         help()
         try:
