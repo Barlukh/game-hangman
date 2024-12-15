@@ -1,3 +1,5 @@
+![screenshot](screenshot.png)
+
 ## Introduction
 A simple game of Hangman. The game is only text-based in the command line. It has a simple functionality and is a copy of the classic Hangman game idea.
 
