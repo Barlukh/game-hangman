@@ -9,7 +9,7 @@ A simple game of Hangman. The game is only text-based in the command line. It ha
 - If the player guesses a letter that is not present in the word, the computer draws a piece of the Hangman figure.
 - Once fully drawn, the player loses. The code repeats but gives the option to the player to exit after the game.
 - The player wins if he correctly guesses all the letters in the word, therefore revealing the whole word.
-- The player input is protected to only insert valid parameters. The game also has some role-playing text for some flavour.
+- The player input is protected to only insert valid parameters. The game also has some role-playing text for flavour.
 
 ## Installation
-No installation. Run it in a Python interpreter or terminal. The game starts automatically through the start() function.
+No installation. Run main.py. The game starts automatically through the start() function.
