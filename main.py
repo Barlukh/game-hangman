@@ -3,6 +3,47 @@
 from wonderwords import RandomWord
 from string import ascii_lowercase
 
+def main():
+    """ Print a welcoming text and ask the player for a name. """
+    print('"Welcome, outlander. Take a seat by the fire and leave your burdens at the door.')
+    print('Come, the wind is freezing outside, let\'s cheer up our spirits with a little game.')
+    print('Now, what is your name, outlander?"\n')
+    player_name = input("Please enter your name: ")
+    print("")
+    print(f'"Very well, {player_name}, I am thinking of a word, your task is to guess the letters of the word one by one.')
+    print('After each failed attempt, I will draw a piece of a \'Hangman\'. Once finished, you lose.')
+    print(f'Now, are you up to the challenge, {player_name}?"\n')
+    player_input(player_name)
+
+def player_input(player_name: str):
+    """ Print information for the player from the help() function and ask for an input. """
+    while True:
+        help()
+        try:
+            player_command = int(input("Please enter a choice: "))
+        except ValueError:
+            separator()
+            print("")
+            print("Wrong choice, only 1 or 0 allowed.")
+            print("")
+            continue
+        if player_command != 0 and player_command != 1:
+            separator()
+            print("")
+            print("Wrong choice, only 1 or 0 allowed.")
+            print("")
+        elif player_command == 0:
+            separator()
+            print("")
+            print(f'"May the roads lead you to warm places, {player_name}. Live long and prosper!"')
+            print("")
+            break
+        elif player_command == 1:
+            separator()
+            print("")
+            print('"Keep your feet on the ground and hold on to your chair!"')
+            new_game()
+
 def word_drawing(masked_word):
     """ Print the word in its current revealed form. """
     masked_word = " ".join(masked_word)
@@ -99,45 +140,5 @@ def help():
     print("1 : new game")
     print("0 : exit\n")
 
-def player_input(player_name: str):
-    """ Print information for the player from the help() function and ask for an input. """
-    while True:
-        help()
-        try:
-            player_command = int(input("Please enter a choice: "))
-        except ValueError:
-            separator()
-            print("")
-            print("Wrong choice, only 1 or 0 allowed.")
-            print("")
-            continue
-        if player_command != 0 and player_command != 1:
-            separator()
-            print("")
-            print("Wrong choice, only 1 or 0 allowed.")
-            print("")
-        elif player_command == 0:
-            separator()
-            print("")
-            print(f'"May the roads lead you to warm places, {player_name}. Live long and prosper!"')
-            print("")
-            break
-        elif player_command == 1:
-            separator()
-            print("")
-            print('"Keep your feet on the ground and hold on to your chair!"')
-            new_game()
-
-def start():
-    """ Print a welcoming text and ask the player for a name. """
-    print('"Welcome, outlander. Take a seat by the fire and leave your burdens at the door.')
-    print('Come, the wind is freezing outside, let\'s cheer up our spirits with a little game.')
-    print('Now, what is your name, outlander?"\n')
-    player_name = input("Please enter your name: ")
-    print("")
-    print(f'"Very well, {player_name}, I am thinking of a word, your task is to guess the letters of the word one by one.')
-    print('After each failed attempt, I will draw a piece of a \'Hangman\'. Once finished, you lose.')
-    print(f'Now, are you up to the challenge, {player_name}?"\n')
-    player_input(player_name)
-
-start()
+if __name__ == '__main__':
+    main()
