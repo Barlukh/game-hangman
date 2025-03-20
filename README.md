@@ -1,4 +1,4 @@
-![screenshot](screenshot.png)
+
 
 ## Introduction
 A simple game of Hangman. The game is played in the terminal window. It has a simple functionality and is a copy of the classic Hangman game.
