@@ -1,12 +1,15 @@
 """
-Filename: main.py
-Author: Boris Gazur
-Version: 1.0.0
-Date: March 20, 2025
+A classic game of Hangman played in the terminal window.
 
 Description:
-    A classic game of Hangman played in the terminal window.
+    This a personal project to test my new-aquired skills in Python.
+    Feel free to try it. The game is played in the terminal, just run python main.py.
+    The only required dependency is the module wonderwords. 
 """
+
+__author__ = "Boris Gazur"
+__version__ = "1.0.0"
+__date__ = "March 20, 2025"
 
 from wonderwords import RandomWord
 from string import ascii_lowercase
