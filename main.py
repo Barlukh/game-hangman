@@ -4,7 +4,7 @@ from wonderwords import RandomWord
 from string import ascii_lowercase
 
 def main():
-    """ Main function of the program. Call to main() at the end of the file starts the program. """
+    """ Main function. Call to main() at the end of this file executes the program. """
     player_name = intro()
     while True:
         choice = player_input()
@@ -28,7 +28,7 @@ def separator():
     print('-' * 70)
 
 def player_input():
-    """ Print available commands from the help() function and ask for an input. """
+    """ Print available commands from the help() function and ask the player for an input. """
     while True:
         help()
         try:
@@ -51,14 +51,14 @@ def help():
     print("0 : exit\n")
 
 def end_game(player_name: str):
-    """ Print a goodbye message and exit(). """
+    """ Print a goodbye message and exit() the program. """
     separator()
     print(f'"I hope to see you again, {player_name}."')
     separator()
     exit()
 
 def new_game(player_name: str):
-    """ Start a new game. """
+    """ Start a new game: generate a word, create masked mirror, loop until win or lose condition is met. """
     separator()
     word = list(generate_word())
     masked_word = list("_" * len(word))
@@ -91,7 +91,7 @@ def new_game(player_name: str):
         print(f'\n"Sorry {player_name}, the word was \'{"".join(word)}\'. Do you want to try again?"\n')
 
 def generate_word():
-    """ Generate and return a random word (noun). """
+    """ Generate and return a random word (english noun). """
     w_inst = RandomWord()
     game_word = w_inst.word(include_categories=["noun"])
     return game_word
@@ -101,12 +101,9 @@ def hangman_drawing(wrong_answers: int):
     base0 = "  +---+"
     base1 = "  |   |"
     base2 = "      |"
-    base3 = "      |"
-    base4 = "      |"
-    base5 = "      |"
     base6 = "========="
     space = ""
-    base = [space, base0, base1, base2, base3, base4, base5, base6, space]
+    base = [space, base0, base1, base2, base2, base2, base2, base6, space]
     wrong1 = "  O   |"
     wrong2 = "  |   |"
     wrong3 = " /|   |"
@@ -118,17 +115,17 @@ def hangman_drawing(wrong_answers: int):
         for i in range(9):
             print(base[i])
     elif wrong_answers == 1:
-        print(f"{space}\n{base0}\n{base1}\n{wrong1}\n{base3}\n{base4}\n{base5}\n{base6}\n{space}")
+        print(f"{space}\n{base0}\n{base1}\n{wrong1}\n{base2}\n{base2}\n{base2}\n{base6}\n{space}")
     elif wrong_answers == 2:
-        print(f"{space}\n{base0}\n{base1}\n{wrong1}\n{wrong2}\n{base4}\n{base5}\n{base6}\n{space}")
+        print(f"{space}\n{base0}\n{base1}\n{wrong1}\n{wrong2}\n{base2}\n{base2}\n{base6}\n{space}")
     elif wrong_answers == 3:
-        print(f"{space}\n{base0}\n{base1}\n{wrong1}\n{wrong3}\n{base4}\n{base5}\n{base6}\n{space}")
+        print(f"{space}\n{base0}\n{base1}\n{wrong1}\n{wrong3}\n{base2}\n{base2}\n{base6}\n{space}")
     elif wrong_answers == 4:
-        print(f"{space}\n{base0}\n{base1}\n{wrong1}\n{wrong4}\n{base4}\n{base5}\n{base6}\n{space}")
+        print(f"{space}\n{base0}\n{base1}\n{wrong1}\n{wrong4}\n{base2}\n{base2}\n{base6}\n{space}")
     elif wrong_answers == 5:
-        print(f"{space}\n{base0}\n{base1}\n{wrong1}\n{wrong4}\n{wrong5}\n{base5}\n{base6}\n{space}")
+        print(f"{space}\n{base0}\n{base1}\n{wrong1}\n{wrong4}\n{wrong5}\n{base2}\n{base6}\n{space}")
     elif wrong_answers == 6:
-        print(f"{space}\n{base0}\n{base1}\n{wrong1}\n{wrong4}\n{wrong6}\n{base5}\n{base6}\n{space}")
+        print(f"{space}\n{base0}\n{base1}\n{wrong1}\n{wrong4}\n{wrong6}\n{base2}\n{base6}\n{space}")
 
 def word_drawing(masked_word):
     """ Print the word in its current revealed form. """
