@@ -6,12 +6,12 @@ from string import ascii_lowercase
 def main():
     """ Main function of the program. Call to main() at the end of the file starts the program. """
     player_name = intro()
-    choice = player_input()
-    if choice == 0:
-        end_game(player_name)
-    else:
-        separator()
-        new_game(player_name)
+    while True:
+        choice = player_input()
+        if choice == 0:
+            end_game(player_name)
+        else:
+            new_game(player_name)
 
 def intro():
     """ Print a welcoming text and ask the player for a name. """
@@ -25,7 +25,7 @@ def intro():
 
 def separator():
     """ Print a separation line for visual purposes. """
-    print('-' * 65)
+    print('-' * 70)
 
 def player_input():
     """ Print available commands from the help() function and ask for an input. """
@@ -51,6 +51,7 @@ def help():
     print("0 : exit\n")
 
 def end_game(player_name: str):
+    """ Print a goodbye message and exit(). """
     separator()
     print(f'"I hope to see you again, {player_name}."')
     separator()
@@ -58,46 +59,42 @@ def end_game(player_name: str):
 
 def new_game(player_name: str):
     """ Start a new game. """
+    separator()
     word = list(generate_word())
     masked_word = list("_" * len(word))
     wrong_answers = 0
-    while True:
+    while wrong_answers < 6:
         hangman_drawing(wrong_answers)
         word_drawing(masked_word)
-        if wrong_answers < 6:
-            user_letter = input("Guess a letter: ")
-            if user_letter not in ascii_lowercase or len(user_letter) > 1:
-                separator()
-                print("")
-                print(f'"I can\'t accept \'{user_letter}\', it must be a single lowercase letter!"')                           
-            elif user_letter in masked_word:
-                separator()
-                print('"You have already revealed that letter!"')
-            elif user_letter in word:
-                for i in range(len(word)):
-                    if user_letter == word[i]:
-                        masked_word[i] = user_letter
-                separator()
-                print(f'"By my beard! Letter \'{user_letter}\' is a right guess!"')
-                if "_" not in masked_word:
-                    hangman_drawing(wrong_answers)
-                    word_drawing(masked_word)
-                    print(f'"You got all the letters, the word was indeed \'{"".join(word)}\'."')
-                    break
-            else:
-                wrong_answers += 1
-                separator()
-                print(f'"What a shame, letter \'{user_letter}\' is a wrong guess!"')
+        user_letter = input('\nGuess a letter: ')
+        separator()
+        if user_letter not in ascii_lowercase or len(user_letter) != 1:
+            print(f'"I can\'t accept \'{user_letter}\', it must be a single lowercase letter!"')                           
+        elif user_letter in masked_word:
+            print('"You have already revealed that letter!"')
+        elif user_letter in word:
+            for i in range(len(word)):
+                if user_letter == word[i]:
+                    masked_word[i] = user_letter
+            print(f'"Yes! Letter \'{user_letter}\' is a right guess!"')
+            if "_" not in masked_word:
+                break
         else:
-            print(f'"How is it hangin\', {player_name}? The word was \'{"".join(word)}\'. Do you want to try again, or are you a chicken?"')
-            break
+            wrong_answers += 1
+            print(f'"What a shame, letter \'{user_letter}\' is a wrong guess!"')
+    
+    hangman_drawing(wrong_answers)
+    word_drawing(masked_word)
+    if wrong_answers != 6:
+        print(f'\n"You got all the letters, the word was indeed \'{"".join(word)}\'."\n')
+    else:
+        print(f'\n"Sorry {player_name}, the word was \'{"".join(word)}\'. Do you want to try again?"\n')
 
 def generate_word():
     """ Generate and return a random word (noun). """
     w_inst = RandomWord()
     game_word = w_inst.word(include_categories=["noun"])
     return game_word
-
 
 def hangman_drawing(wrong_answers: int):
     """ Print the Hangman figure based on wrong_answers value. """
@@ -137,7 +134,6 @@ def word_drawing(masked_word):
     """ Print the word in its current revealed form. """
     masked_word = " ".join(masked_word)
     print(masked_word)
-    print("")
 
 if __name__ == '__main__':
     main()
