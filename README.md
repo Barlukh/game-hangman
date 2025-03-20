@@ -12,5 +12,6 @@ A simple game of Hangman. The game is played in the terminal window. It has a si
 - The player input is protected to only insert valid parameters.
 
 ## Installation
-Ensure Python is installed on your system. Use pip to install all required packages listed in requirements.txt (pip install -r requirements.txt).
+Ensure Python is installed on your system.<br>
+Use pip to install all required packages listed in requirements.txt (pip install -r requirements.txt).<br>
 Execute the main script to run the program (python main.py).
