@@ -1,4 +1,12 @@
-""" Main file of the game. Function start() starts the game. """
+"""
+Filename: main.py
+Author: Boris Gazur
+Version: 1.0.0
+Date: March 20, 2025
+
+Description:
+    A classic game of Hangman played in the terminal window.
+"""
 
 from wonderwords import RandomWord
 from string import ascii_lowercase
@@ -20,7 +28,7 @@ def intro():
     player_name = input('Please enter your name: ')
     separator()
     print(f'"Very well, {player_name}, I am thinking of a word,\ntry to guess the letters of the word one by one.')
-    print('After each failed attempt, I will draw a piece of a \'Hangman\'.\nOnce finished, you lose. If you guess the word, you win."\n')
+    print('After each failed attempt, I will draw a piece of a Hangman.\nOnce finished, you lose. If you guess the word, you win."\n')
     return player_name
 
 def separator():
@@ -28,9 +36,9 @@ def separator():
     print('-' * 70)
 
 def player_input():
-    """ Print available commands from the help() function and ask the player for an input. """
+    """ Print available commands from the help_commands() function and ask the player for an input. """
     while True:
-        help()
+        help_commands()
         try:
             player_command = int(input('Please enter a choice: '))
             if player_command not in (0, 1):
@@ -45,7 +53,7 @@ def player_input():
         elif player_command == 1:
             return 1
 
-def help():
+def help_commands():
     """ Print available commands for the player to use. """
     print("1 : new game")
     print("0 : exit\n")
