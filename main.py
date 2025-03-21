@@ -1,10 +1,11 @@
 """
-A classic game of Hangman played in the terminal window.
+Project Title: Hangman
+Filename: main.py
 
 Description:
-    This a personal project to test my new-aquired skills in Python.
-    Feel free to try it. The game is played in the terminal, just run python main.py.
-    The only required dependency is the module wonderwords. 
+    A classic game of Hangman. Guess the letters of the hidden word.
+    The game is played in the terminal, execute with main.py.
+    The only required dependency is the module wonderwords.
 """
 
 __author__ = "Boris Gazur"
