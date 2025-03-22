@@ -9,8 +9,7 @@ Description:
 """
 
 __author__ = "Boris Gazur"
-__version__ = "1.0.0"
-__date__ = "March 20, 2025"
+__date__ = "March 22, 2025"
 
 from wonderwords import RandomWord
 from string import ascii_lowercase
