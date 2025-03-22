@@ -3,9 +3,9 @@ Project Title: Hangman
 Filename: main.py
 
 Description:
-    A classic game of Hangman. Guess the letters of the hidden word.
-    The game is played in the terminal, execute with main.py.
-    The only required dependency is the module wonderwords.
+    A classic game of Hangman where the player tries to guess the letters of the hidden word.
+    The game is played in the terminal. Execution happens through the main.py file.
+    Python interepreter is needed. The only other required dependency is the module wonderwords.
 """
 
 __author__ = "Boris Gazur"
