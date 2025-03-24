@@ -5,7 +5,7 @@ Filename: main.py
 Description:
     A classic game of Hangman where the player tries to guess the letters of the hidden word.
     The game is played in the terminal. Execution happens through the main.py file.
-    Python interpreter needed. The only other required dependency is the module 'wonderwords'.
+    Python interpreter is needed. The only other required dependency is the module 'wonderwords'.
 """
 
 __author__ = "Boris Gazur (Barlukh)"
