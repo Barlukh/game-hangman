@@ -1,3 +1,5 @@
+# Hangman
+
 ![screenshot](screenshot.png)
 
 ## Introduction
