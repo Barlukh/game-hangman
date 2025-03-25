@@ -1,8 +1,10 @@
 # Hangman
 
-![screenshot](screenshot.png)
+<p align="center">
+    <img width="1000" src="screenshot.png" alt="screenshot">
+</p>
 
-## Introduction
+## About
 A simple game of Hangman. The game is played in the terminal window. It has a simple functionality and is a copy of the classic Hangman game.
 
 ## Functionality
