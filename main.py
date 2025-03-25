@@ -8,9 +8,6 @@ Description:
     Python interpreter is needed. The only other required dependency is the module 'wonderwords'.
 """
 
-__author__ = "Boris Gazur (Barlukh)"
-__date__ = "March 22, 2025"
-
 from wonderwords import RandomWord
 from string import ascii_lowercase
 
